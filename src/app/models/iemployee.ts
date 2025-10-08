@@ -1,4 +1,4 @@
 export interface IEmployee {
-    employeeName: string;
+    name: string;
     hoursWorked: number;
 }

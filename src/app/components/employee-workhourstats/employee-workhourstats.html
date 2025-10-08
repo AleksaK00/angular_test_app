@@ -1,1 +1,29 @@
-<p>employee-workhourstats works!</p>
+<table class="table-responsive">
+
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Monthly work hours</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    @for(employee of employees; track $index) {
+        <tr [class.markedRow]="employee.hoursWorked < 100">
+            <td>{{employee.name}}</td>
+            <td>{{employee.hoursWorked.toFixed(0)}}h</td>
+            <td>
+            <a href="">Edit</a>
+            </td>
+        </tr>
+    }
+  </tbody>
+
+</table>
+
+<!-- pie chart -->
+<div class="chart">
+    <canvas #pieChart></canvas>
+</div>
+

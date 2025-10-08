@@ -1,0 +1,55 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    min-width: auto;
+    margin: 20px auto;
+}
+
+thead tr {
+    background-color: darkgreen;
+    color: white;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px 15px;
+}
+
+tbody tr {
+    border-bottom: 1px solid lightgray;
+}
+
+tbody tr:last-of-type {
+    border-bottom: 2px solid darkgreen;
+}
+
+tbody tr:hover {
+    background-color: rgb(240, 212, 212);
+    cursor: pointer;
+}
+
+.markedRow{
+    background-color: lightcoral;
+}
+
+.markedRow:hover{
+    background-color: rgb(245, 95, 95) !important;
+}
+
+.chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.chart canvas {
+    max-height: 500px;
+    max-width: 600px;
+    width: 100%;
+}
