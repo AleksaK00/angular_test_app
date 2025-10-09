@@ -36,16 +36,18 @@ export class EmployeeWorkhourstats {
 
     this.employeeWorkTasks.forEach(workTask => {
 
-      let milisecondsWorked: number = new Date(workTask.EndTimeUtc).getTime() - new Date(workTask.StarTimeUtc).getTime();
-      let hoursWorked: number = milisecondsWorked / (1000 * 60 * 60);
+      if (!workTask.DeletedOn) {
+        let milisecondsWorked: number = new Date(workTask.EndTimeUtc).getTime() - new Date(workTask.StarTimeUtc).getTime();
+        let hoursWorked: number = milisecondsWorked / (1000 * 60 * 60);
 
-      const employee = this.employees.find(e => e.name === workTask.EmployeeName);
-      if (employee) {
-        employee.hoursWorked += hoursWorked;
-      } else {
-        this.employees.push({ name: workTask.EmployeeName, hoursWorked: hoursWorked });
+        const employee = this.employees.find(e => e.name === workTask.EmployeeName);
+        if (employee) {
+          employee.hoursWorked += hoursWorked;
+        } else {
+          this.employees.push({ name: workTask.EmployeeName, hoursWorked: hoursWorked });
+        }
+        this.totalHoursWorked += hoursWorked;
       }
-      this.totalHoursWorked += hoursWorked;
     });
 
     this.employees.sort((a, b) => b.hoursWorked - a.hoursWorked);
