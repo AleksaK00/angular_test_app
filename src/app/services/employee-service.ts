@@ -13,6 +13,6 @@ export class EmployeeService {
   constructor() {}
 
   getEmployeeWorkTasks() :Observable<IEmployeeWorkTask[]> {
-    return this.httpClient.get<IEmployeeWorkTask[]>('https://rc-vault-fap-live-1.azurewebsites.net/api/gettimeentries?code=' + environment.API_KEY);
+    return this.httpClient.get<IEmployeeWorkTask[]>('https://rc-vault-fap-live-1.azurewebsites.net/api/gettimeentries?code=' + environment.URL);
   }
 }
